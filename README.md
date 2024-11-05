@@ -83,7 +83,9 @@ After running the script options Snort3 will be installed and fully configured, 
 ## Prerequisites
 
 Linux Distribution: Ubuntu 20.04 or later.
+
 Git: Required for cloning the repository.
+
 Networking Knowledge: Basic understanding of network security concepts is recommended.
 
 ## Contributing
