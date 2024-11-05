@@ -6,9 +6,9 @@ Welcome to the **Snort3 Full Installation and Configuration Script** repository!
 
 ## Features
 
-- **Automated Installation**: Installs Snort3 and all necessary dependencies seamlessly.
-- **Configuration Options**: Configures Snort3 for various use cases, ensuring flexibility and adaptability.
-- **Comprehensive Documentation**: Detailed instructions on how to use the script and customize configurations.
+- **Automated Installation**: Installs all prerequisites and Snort3 components.
+- **Configuration Options**: Provides options for editing configuration files, testing, and managing Snort3.
+- **Interactive Menu**: A user-friendly command-line interface for managing the installation and configuration.
 
 ## Table of Contents
 
