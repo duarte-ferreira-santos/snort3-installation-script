@@ -45,7 +45,7 @@ Main Menu:
 - **Install gperftools**: Installs Google Performance Tools for performance profiling.
 - **Install Ragel**: Installs Ragel for generating finite state machines.
 - **Download Boost**: Downloads Boost C++ libraries.
-- **Install Boost (optional)**: Optionally installs Boost libraries.
+- **Install Boost (optional)**: Optionally installs Boost libraries. 
 - **Install Safeclib**: Installs Safeclib for enhanced security.
 - **Install Hyperscan**: Installs Intel's Hyperscan for high-performance regex matching.
 - **Install Flatbuffers**: Installs Flatbuffers for efficient serialization.
@@ -53,13 +53,13 @@ Main Menu:
 - **Update Shared Libraries**: Updates shared libraries after installations.
 - **Create ethtool.service**: Creates a service for managing network interfaces.
 - **Install Snort 3**: Installs the Snort 3 IDS.
-- **Enabling Built-in Rules and Testing Snort**: Configures and tests built-in rules.
-- **Configure Snort User, Group, Permissions**: Sets up the necessary user and permissions.
-- **Create snort3.service Systemd Service**: Configures Snort as a systemd service.
-- **Install and configure PulledPork 3**: Installs PulledPork for rules management.
-- **Setup PulledPork Auto-Update Timer**: Configures auto-update for PulledPork.
-- **Install Snort 3 OpenAppID/ODP and Extras**: Installs additional Snort features.
-- **Enable Snort3 Features**: Activates features like Hyperscan and Blocklist.
+- **Enabling Built-in Rules and Testing Snort**: Enables built-in rules in snort.lua, and tests the Snort setup to ensure proper functionality.
+- **Configure Snort User, Group, Permissions**: Sets up the Snort user and group, establishes permissions for log directories, and ensures the appropriate security measures are in place.
+- **Create snort3.service Systemd Service**: Configures Snort as a systemd service for automatic management and enables it to run on a specified network interface.
+- **Install and configure PulledPork 3**: Automates the installation and configuration of PulledPork 3 for managing Snort rules, setting up necessary directories and permissions.
+- **Setup PulledPork Auto-Update Timer**: Configures automatic updates for PulledPork to ensure the latest Snort rules are regularly applied, enhancing system security.
+- **Install Snort 3 OpenAppID/ODP and Extras**: Installs additional Snort features, including OpenAppID and other enhancements for improved detection capabilities.
+- **Enable Snort3 Features**: Backs up the snort.lua configuration, updates the HOME_NET variable, and ensures the inclusion of custom settings for enhanced monitoring capabilities.
 - **Install Vectorscan**: Alternative to Hyperscan for regex matching.
 - **Uninstall Snort 3**: Removes Snort 3 from the system.
 - **Update snort3_systemd with PID**: Updates systemd service with process ID.
