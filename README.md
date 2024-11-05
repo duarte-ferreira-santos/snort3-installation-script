@@ -36,7 +36,49 @@ To install and configure Snort3 using this script, follow these simple steps:
 
 ## Usage
 
-Once Snort3 is installed, you can start using it to monitor your network for suspicious activity. The configuration file will be located at /etc/snort/snort.lua. Make sure to adjust the settings to fit your network environment.
+Once the script is running, you will be presented with the following options in the main menu:
+
+    Install Pre-requisites
+    Install PCRE
+    Install gperftools
+    Install Ragel
+    Download Boost
+    Install Boost (optional)
+    Install Safeclib
+    Install Hyperscan
+    Install Flatbuffers
+    Install Data Acquisition (DAQ)
+    Update Shared Libraries
+    Create ethtool.service
+    Install Snort 3
+    Enabling Built-in Rules and Testing Snort
+    Configure Snort User, Group, Permissions
+    Create snort3.service Systemd Service
+    Install and configure PulledPork 3
+    Setup PulledPork Auto-Update Timer
+    Install Snort 3 OpenAppID/ODP and Extras
+    Enable Snort3 Features (Hyperscan, Blocklist, json, SO_rules)
+    Install Vectorscan (alternative to Hyperscan)
+    Uninstall Snort 3
+    Update snort3_systemd with PID
+    Tests and Edits
+    Exit
+
+Tests and Edits Menu
+
+The script also includes a "Tests and Edits" menu with the following options:
+
+    Edit snort.lua
+    Test snort.lua
+    Edit PulledPork config
+    Edit local.rules
+    Run PulledPork
+    Edit Snort service file
+    Reload and test Snort service
+    Edit custom.lua
+    Return to main menu
+
+After running the script options Snort3 will be installed and fully configured, you can start using it to monitor your network for suspicious activity. For further configuration edit the /etc/snort/snort.lua. Make sure to adjust the settings to fit your network environment.
 
 ## Prerequisites
 
