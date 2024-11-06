@@ -25,11 +25,13 @@ To install and configure Snort3 using this script, follow these simple steps:
 
 1. Clone the repository:
    git clone https://github.com/duarte-ferreira-santos/snort3-installation-script.git
+
    cd snort3-installation-script
 
 2. Run the installation script:
 
     chmod +x install_snort3.sh
+
     ./install_snort3.sh
 
     Follow the on-screen instructions to complete the installation.
