@@ -4,20 +4,54 @@
 
 Welcome to the **Snort3 Full Installation and Configuration Script** repository! This project provides an automated installation script for Snort3, a powerful open-source Intrusion Detection System (IDS) designed to enhance your network security. By automating the setup process, this script simplifies the installation of Snort3, allowing you to effectively monitor and protect your network from potential intrusions and threats.
 
-## Features
+## Key Features
 
-- **Automated Installation**: Installs all prerequisites and Snort3 components.
-- **Configuration Options**: Provides options for editing configuration files, testing, and managing Snort3.
-- **Interactive Menu**: A user-friendly command-line interface for managing the installation and configuration.
+- **Automated Dependency Installation**: Installs all required libraries in tested versions for a successful Snort3 build.
+- **Comprehensive Configuration Options**: Allows modification of configuration files, testing, and managing Snort3 interactively.
+- **Interactive CLI Menu**: Offers a user-friendly command-line interface to simplify installation and configuration.
 
 ## Table of Contents
 
+- [Dependencies and Snort Version](#dependencies-and-snort-version)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Prerequisites](#prerequisites)
 - [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
+
+## Dependencies and Snort Version
+
+The script installs the following dependencies, ensuring compatibility with **Snort3 version 3.3.0.0** for optimal installation and operation:
+
+| Dependency     | Version  |
+|----------------|----------|
+| Boost          | 1.85.0   |
+| PCRE           | 8.45     |
+| Gperftools     | 2.15     |
+| Ragel          | 6.10     |
+| Hyperscan      | 5.4.2    |
+| Flatbuffers    | 2.0.0    |
+| DAQ            | 3.0.15   |
+| Safeclib       | 3.8.1    |
+
+These versions have been thoroughly tested to work together, eliminating compatibility issues in the build environment.
+
+**Feature options**:
+    DAQ Modules:    Static (afpacket;bpf;dump;fst;gwlb;nfq;pcap;savefile;trace)
+    libatomic:      System-provided
+    Hyperscan:      ON
+    ICONV:          ON
+    Libunwind:      ON
+    LZMA:           ON
+    RPC DB:         Built-in
+    SafeC:          OFF
+    TCMalloc:       ON
+    JEMalloc:       OFF
+    UUID:           ON
+    NUMA:           ON
+    LibML:          OFF
+
 
 ## Installation
 
@@ -38,7 +72,7 @@ To install and configure Snort3 using this script, follow these simple steps:
 
 ## Usage
 
-Once the script is running, you will be presented with the following options in the main menu:
+Once the script starts, the main menu displays various options for installation and configuration. For a complete installation, you can simply follow the menu options in numerical order, ensuring each component is set up in sequence.
 
 Main Menu:
 
