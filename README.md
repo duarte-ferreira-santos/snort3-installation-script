@@ -51,9 +51,9 @@ To install and configure Snort3 using this script, follow these simple steps:
 
 2. Run the installation script:
 
-    chmod +x install_snort3.sh
+    chmod +x snort3-autodeploy.sh
 
-    ./install_snort3.sh
+    ./snort3-autodeploy.sh
 
     Follow the on-screen instructions to complete the installation.
 
