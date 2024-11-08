@@ -492,7 +492,7 @@ EOF
     echo ""
 
     # Save the PID number of the Snort service
-    snort_pid=$(cat /var/log/snort/snort.pid)
+    snort_pid=$(systemctl show -p MainPID --value snort3.service)
     echo "Snort PID: $snort_pid"
 
     # Additional checks
@@ -911,18 +911,21 @@ update_snort_systemd_service() {
         cat << 'EOF' | sudo tee /usr/local/bin/snort_wrapper.sh > /dev/null
 #!/bin/bash
 
+# Get the correct network interface
+INTERFACE=$(ip --brief a | grep -v "lo" | awk '{print $1}' | head -n 1)
+
 # Run Snort with the specified options
 /usr/local/bin/snort -c /usr/local/etc/snort/snort.lua -s 65535 \
--k none -l /var/log/snort -D -u snort -g snort -i ens3 -m 0x1b --plugin-path=/usr/local/lib/snort_extra --plugin-path=/usr/local/etc/so_rules
+-k none -l /var/log/snort -D -u snort -g snort -i "$INTERFACE" -m 0x1b --plugin-path=/usr/local/lib/snort_extra --plugin-path=/usr/local/etc/so_rules
 
 # Capture the PID of the Snort process
-SNORT_PID=$!
+snort_pid=$(systemctl show -p MainPID --value snort3.service)
 
 # Ensure the /var/log/snort directory exists
 mkdir -p /var/log/snort
 
 # Write the PID to the pid file
-echo $SNORT_PID > /var/log/snort/snort.pid
+echo "$snort_pid" > /var/log/snort/snort.pid
 
 # Change the ownership and permissions of the PID file
 chown snort:snort /var/log/snort/snort.pid
@@ -948,10 +951,18 @@ EOF
     echo "Available network interfaces:"
     ip --brief a | egrep -v "lo"
 
-    # Prompt user to select the interface for sniffing
-    read -rp "Enter the name of the interface used for sniffing traffic: " interface_name
+    # Prompt user to select the interface for sniffing (optional)
+    read -rp "Enter the name of the interface used for sniffing traffic (or press Enter to use the first available interface): " interface_name
 
-    # Create or update the systemD service file
+    # If the user provided a custom interface, validate and use it
+    if [ -n "$interface_name" ]; then
+        INTERFACE="$interface_name"
+    else
+        # Automatically use the first available network interface
+        INTERFACE=$(ip --brief a | grep -v "lo" | awk '{print $1}' | head -n 1)
+    fi
+
+    # Create or update the systemD service file with the detected interface
     cat << EOF | sudo tee /lib/systemd/system/snort3.service > /dev/null
 [Unit]
 Description=Snort Daemon
@@ -959,13 +970,16 @@ After=syslog.target network.target
 
 [Service]
 Type=simple
-ExecStart=/usr/local/bin/snort_wrapper.sh --plugin-path=/usr/local/lib/snort_extra --plugin-path=/usr/local/etc/so_rules
-ExecStopPost=/usr/bin/rm -f /var/log/snort/snort.pid
-Restart=on-failure
-RestartSec=120s
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+ExecStart=/usr/local/bin/snort -c /usr/local/etc/snort/snort.lua -s 65535 -k none -l /var/log/snort -D -u snort -g snort -i $interface_name -m 0x1b --create-pidfile --plugin-path=/usr/local/etc/so_rules/
+PIDFile=/var/log/snort/snort.pid
 
 [Install]
 WantedBy=multi-user.target
+
 EOF
 
     echo "snort3.service file created or updated:"
@@ -1000,10 +1014,8 @@ EOF
     ps -ef | grep snort
     echo ""
 
-    # Pause and return (assuming pause_and_return is defined elsewhere in your script)
     pause_and_return
 }
-
 
 edit_snort_lua() {
     nano /usr/local/etc/snort/snort.lua
