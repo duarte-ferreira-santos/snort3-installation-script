@@ -37,19 +37,31 @@ The script installs the following dependencies, ensuring compatibility with **Sn
 
 These versions have been thoroughly tested to work together, eliminating compatibility issues in the build environment.
 
-**Feature options**:
+**Feature options for default installation**:
     DAQ Modules:    Static (afpacket;bpf;dump;fst;gwlb;nfq;pcap;savefile;trace)
+
     libatomic:      System-provided
+
     Hyperscan:      ON
+
     ICONV:          ON
+
     Libunwind:      ON
+
     LZMA:           ON
+
     RPC DB:         Built-in
+
     SafeC:          OFF
+
     TCMalloc:       ON
+
     JEMalloc:       OFF
+
     UUID:           ON
+
     NUMA:           ON
+
     LibML:          OFF
 
 
