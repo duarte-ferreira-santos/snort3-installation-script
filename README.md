@@ -1,5 +1,7 @@
 # Snort3 Full Installation and Configuration Script
 
+![autodeploy-logo](./snort3-autodeploy-logo.jpg)
+
 ## Introduction
 
 Welcome to the **Snort3 Full Installation and Configuration Script** repository! This project provides an automated installation script for Snort3, a powerful open-source Intrusion Detection System (IDS) designed to enhance your network security. By automating the setup process, this script simplifies the installation of Snort3, allowing you to effectively monitor and protect your network from potential intrusions and threats.
