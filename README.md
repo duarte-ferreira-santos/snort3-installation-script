@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Welcome to the **Snort3 Full Installation and Configuration Script** repository! This project provides an automated installation script for Snort3, a powerful open-source Intrusion Detection System (IDS) designed to enhance your network security. By automating the setup process, this script simplifies the installation of Snort3, allowing you to effectively monitor and protect your network from potential intrusions and threats.
+Welcome to the **Snort3 Full Installation and Configuration Script** repository! This project offers a robust, automated installation script for Snort3, a powerful open-source Intrusion Detection System (IDS) tailored to strengthen network security. By automating key aspects of the setup process, this script not only simplifies installation but also saves considerable time on configuration and testing.
 
 ## Key Features
 
@@ -59,7 +59,7 @@ To install and configure Snort3 using this script, follow these simple steps:
 
 ## Usage
 
-Once the script starts, the main menu displays various options for installation and configuration. For a complete installation, you can simply follow the menu options in numerical order, ensuring each component is set up in sequence.
+Upon starting the script, the main menu presents various installation and configuration options. For a complete installation, simply follow the menu options in numerical order, ensuring each component is set up sequentially.
 
 Main Menu:
 
@@ -101,7 +101,7 @@ Tests and Edits Menu:
 - **Edit custom.lua**: Edit the custom configuration for Snort.
 - **Return to main menu**: Go back to the main menu.
 
-After running the script options Snort3 will be installed and fully configured, you can start using it to monitor your network for suspicious activity. For further configuration edit the /etc/snort/snort.lua. Make sure to adjust the settings to fit your network environment.
+After running the script options, Snort3 will be installed and fully configured. You can then start using it to monitor your network for suspicious activity. For further configuration, edit /etc/snort/snort.lua. Be sure to adjust the settings to fit your specific network environment.
 
 ## Prerequisites
 
